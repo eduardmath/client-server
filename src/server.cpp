@@ -13,14 +13,14 @@ using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using helloworld::HelloRequest;
-using helloworld::HelloReply;
+using helloworld::CodeRequest;
+using helloworld::CodeReply;
 using helloworld::Greeter;
 
 // Logic and data behind the server's behavior.
 class GreeterServiceImpl final : public Greeter::Service {
-	Status TransferBinaryCode(ServerContext* context, const HelloRequest* request,
-	HelloReply* reply) override {
+	Status TransferBinaryCode(ServerContext* context, const CodeRequest* request,
+	CodeReply* reply) override {
   std::string str(request->code());
   std::vector<int> mod;
   bool one = true, two = false;

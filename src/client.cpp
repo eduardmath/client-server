@@ -38,8 +38,7 @@ class GreeterClient {
     // Act upon its status.
     if (status.ok()) {
       return reply.message();
-    }
-    else {
+    } else {
       std::cout << status.error_code() << ": " << status.error_message()
         << std::endl;
       return "RPC failed";
@@ -65,18 +64,15 @@ int main(int argc, char** argv) {
       start_pos += arg_str.size();
       if (arg_val[start_pos] == '=') {
         target_str = arg_val.substr(start_pos + 1);
-      }
-      else {
+      } else {
         std::cout << "The only correct argument syntax is --target=" << std::endl;
         return 0;
       }
-    }
-    else {
+    } else {
       std::cout << "The only acceptable argument is --target=" << std::endl;
       return 0;
     }
-  }
-  else {
+  } else {
     target_str = "localhost:50051";
   }
   GreeterClient greeter(grpc::CreateChannel(

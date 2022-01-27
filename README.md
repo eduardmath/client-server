@@ -14,7 +14,7 @@ We will need installed:
 - [Creating a project using CMake](#Creating-a-project-using-CMake)
 - [Compiling the code and testing the server and client executables](#Compiling-the-code-and-testing-the-server-and-client-executables)
 ## Installing of vcpkg
-**If gps and proton are installed, go over** [Generation of source files using proto file](#Generation of-source-files-using-proto-file)  
+**If gps and proton are installed, go over** [Generation of source files using proto file](#Generation-of-source-files-using-proto-file)  
 Vcpkg helps you manage C and C++ libraries on Windows, Linux and MacOS.  
 I installed `vcpkg` in `C:/dev`:
 

@@ -14,7 +14,7 @@ using helloworld::HelloReply;
 using helloworld::Greeter;
 
 class GreeterClient {
-public:
+ public:
   GreeterClient(std::shared_ptr<Channel> channel)
     : stub_(Greeter::NewStub(channel)) {}
 
@@ -46,7 +46,7 @@ public:
     }
   }
 
-private:
+ private:
   std::unique_ptr<Greeter::Stub> stub_;
 };
 

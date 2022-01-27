@@ -39,8 +39,9 @@ class GreeterServiceImpl final : public Greeter::Service {
 						mod.push_back(0);
 						two = true;
 					}
-					else
+					else {
 						one = true;
+					}
 				}
 			}
 			else {

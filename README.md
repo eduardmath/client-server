@@ -67,7 +67,11 @@ or
 ```
 This command will generate the cpp file required for the service interfaces.
 ## Creating a project using CMake
-Now go to our `project/build` folder and issue the following command to generate a project using CMake:
+Create a folder build in client-server:
+```
+> mkdir build
+```
+Now go to our `client-server/build` folder and issue the following command to generate a project using CMake:
 ```
 > cmake ../ -DCMAKE_TOOLCHAIN_FILE=<vcpkg_install_path>/scripts/buildsystems/vcpkg.cmake
 ```

@@ -4,11 +4,7 @@
 
 #include <grpcpp/grpcpp.h>
 
-#ifdef BAZEL_BUILD
 #include "../proto/helloworld.grpc.pb.h"
-#else
-#include "C:/Program Files/client-server/proto/helloworld.grpc.pb.h"
-#endif
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -24,10 +20,10 @@ public:
 
   // Assembles the client's payload, sends it and presents the response back
   // from the server.
-  std::string SayHello(const std::string& user) {
+  std::string TransferBinaryCode(const std::string& code) {
     // Data we are sending to the server.
     HelloRequest request;
-    request.set_name(user);
+    request.set_code(code);
 
     // Container for the data we expect from the server.
     HelloReply reply;
@@ -37,7 +33,7 @@ public:
     ClientContext context;
 
     // The actual RPC.
-    Status status = stub_->SayHello(&context, request, &reply);
+    Status status = stub_->TransferBinaryCode(&context, request, &reply);
 
     // Act upon its status.
     if (status.ok()) {
@@ -85,11 +81,11 @@ int main(int argc, char** argv) {
   }
   GreeterClient greeter(grpc::CreateChannel(
     target_str, grpc::InsecureChannelCredentials()));
-  std::string user("world");
   std::string str;
+  std::cout << "Client: ";
   std::cin >> str;
-  std::string reply = greeter.SayHello(str);
-  std::cout << "Greeter received: " << reply << std::endl;
+  std::string reply = greeter.TransferBinaryCode(str);
+  std::cout << "Server: " << reply << std::endl;
 
   return 0;
 }

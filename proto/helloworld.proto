@@ -10,12 +10,12 @@ package helloworld;
 // The greeting service definition.
 service Greeter {
   // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc TransferBinaryCode (HelloRequest) returns (HelloReply) {}
 }
 
 // The request message containing the user's name.
 message HelloRequest {
-  string name = 1;
+  string code = 1;
 }
 
 // The response message containing the greetings

@@ -9,8 +9,8 @@
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
-using helloworld::HelloRequest;
-using helloworld::HelloReply;
+using helloworld::CodeRequest;
+using helloworld::CodeReply;
 using helloworld::Greeter;
 
 class GreeterClient {
@@ -22,11 +22,11 @@ class GreeterClient {
   // from the server.
   std::string TransferBinaryCode(const std::string& code) {
     // Data we are sending to the server.
-    HelloRequest request;
+    CodeRequest request;
     request.set_code(code);
 
     // Container for the data we expect from the server.
-    HelloReply reply;
+    CodeReply reply;
 
     // Context for the client. It could be used to convey extra information to
     // the server and/or tweak certain RPC behaviors.
